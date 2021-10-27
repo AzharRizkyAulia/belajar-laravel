@@ -49,3 +49,22 @@ Route::get('biodata2', function () {
     $hobi = "Ntah";
     return view('biodata', compact('nama','jk','tmpt','tgl','alamat','agama','hobi'));
 });
+
+Route::get('/input/{nama}/{jk}/{tmpt}/{tgl}/{alamat}/{agama}/{hobi}', function ($nama,$jk,$tmpt,$tgl,$alamat,$agama,$hobi) {
+    echo "<p>Nama              : " .$nama ."</p>";
+    echo "<p>Jenis Kelamin     : " .$jk ."</p>";
+    echo "<p>Tempat Lahir      : " .$tmpt ."</p>";
+    echo "<p>Tanggal Lahir     : " .$tgl ."</p>";
+    echo "<p>Alamat            : " .$alamat ."</p>";
+    echo "<p>Agama             : " .$agama ."</p>";
+    echo "<p>Hobi              : " .$hobi;
+});
+
+Route ::get('blog',function() {
+    $data = [
+        ['id' => 1, 'title' => 'Lorem Ipsum 1', 'content' => 'Content Pertama'],
+        ['id' => 2, 'title' => 'Lorem Ipsum 2', 'content' => 'Content Kedua'],
+        ['id' => 3, 'title' => 'Lorem Ipsum 3', 'content' => 'Content Ketiga']
+    ];
+    return view('blog', compact('data'));
+});
