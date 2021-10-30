@@ -144,3 +144,35 @@ function (
     }
     echo "<p>Grade       : " .$grade ."</p>";    
 });
+
+Route::get('/pesan/{makanan?}/{minuman?}/{cemilan?}',
+function (
+    $makanan = null,
+    $minuman = null,
+    $cemilan = null) {
+        
+    if ($makanan != null && $minuman == null && $cemilan == null) {
+        echo "</h2>Anda Memesan</h2><br>";
+        echo "Makanan : <b>" .$makanan ."</b><br>";
+    }
+    elseif ($makanan != null && $minuman != null && $cemilan == null) {
+        echo "</h2>Anda Memesan</h2><br>";
+        echo "Makanan : <b>" .$makanan ."</b><br>";
+        echo "Minuman : <b>" .$minuman ."</b><br>";
+    }
+    elseif ($minuman != null && $cemilan != null && $makanan != null) {
+        echo "</h2>Anda Memesan</h2><br>";
+        echo "Makanan : <b>" .$makanan ."</b><br>";
+        echo "Minuman : <b>" .$minuman ."</b><br>";
+        echo "Cemilan : <b>" .$cemilan ."</b><br>";
+    }
+    else{
+        echo "Silahkan Pulang<br>";        
+    }
+});
+
+//Menampilkan Database
+Route::get('/testmodel', function() {
+    $query = App\Models\Post::all();
+    return $query;
+});
